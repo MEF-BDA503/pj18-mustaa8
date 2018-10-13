@@ -1,0 +1,34 @@
+---
+title: "homework"
+author: "mustafa kurt"
+date: "October 13, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+I'm Mustafa Kurt working at Ziraat Bank for 10 years. I worked at a branch for 1,5 years, then at Project Management Office for 3 years, then at Marketing for 3 years and for the last 2,5 years i'm working at sales department as a reporting officer. My responsibility is to prepare daily reports and to make proactive or ad hoc analysis on demand from Directors and Retail Banking general manager and to set quarterly performance targets for branches. I plan to improve my skills on forecasting studies. I still searching for the possible projects. Didn't find many options but forecasting flight delays may be an option. 
+
+UseR-2018 videos: 
+1-"Tidy Forecasting in R"
+It's about an update of forecast package to fable. Fable's most significant new features are;
+  -it makes it possible to work on more then one time series at a time, 
+  -it is focused on model estimation and forecasts, 
+  -it can create models for many different cases at one time,
+  -it creates distribution forecasting rather then point intervals,
+  -it improved user experience and more consistent.
+  
+2-"tsibble: Tidy data structures to support exploration and modeling of temporal-context data" 
+It' intoduces tsibble as the 15th time series standart.
+First speaker summerizes history of time series standarts in R ecosystem, then points out the restrictions like time indexes and homogenity of data in matrix system (i didnt get this part because we can have any kind of data in a matrix). After that speaker explains how tsibble works (e.g. it helps indexing and grouping so creating multiple time series, it has a function to fill NA observations and it works some previous widely used functions )
+
+3-fasster: Forecasting multiple seasonality with state switching
+
+Speaker gives the example of electricity demand, mothly, daily and half-hourly. 
+He shows the evaluations of models for multiple seasionality.
+Fasster uses a variable (e.g daytype ; working day or not) to switch the model to calculate demand. With the stream function it can produce new results faster then previous functions, it does not calculate the whole data again just adds the new stream of data to the results. 
+
