@@ -1,0 +1,63 @@
+---
+title: "ODD Sales October 2017"
+author: "mustafa kurt"
+date: "October 14, 2018"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r, echo=FALSE}
+car_data_oct_17 <- readRDS("car_data_oct_17.rds")
+```
+
+## ODD OCTOBER 2017 SALES
+
+At October 2017 
+```{r total, echo=FALSE}
+sum(car_data_oct_17$total_total)
+```
+cars sold. 
+```{r imports, echo=FALSE}
+sum(car_data_oct_17$total_imp)
+```
+of them are import cars. And 
+
+```{r domestic, echo=FALSE}
+sum(car_data_oct_17$total_dom)
+```
+of them are produced in Turkey.
+This table shows domestic production percentage of cars by brand. 
+```{r cars, echo=FALSE}
+ select(car_data_oct_17,brand_name,total_dom,total_imp,total_total)%>%
+   mutate(dom_perc=total_dom/total_imp)%>%
+     arrange(desc(dom_perc))
+```
+
+## Exceptions
+
+Here are the brands sold at least one but less then 10 cars in October 2017
+
+```{r exc, echo=FALSE}
+exc<-select(car_data_oct_17, brand_name,total_total)%>%
+  filter(total_total<10 & total_total>0)
+```
+
+```{r exceptions, echo=FALSE}
+ ggplot(data = exc) + 
+     geom_point(mapping = aes(x = total_total, y = brand_name))
+```
+
+
